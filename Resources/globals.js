@@ -1,4 +1,4 @@
-var dp = 1;
+Ti.include(Titanium.Filesystem.resourcesDirectory + "constants/appConstants.js");
 
 exports.Globals = {
 	news : {
@@ -63,6 +63,15 @@ exports.Data = {
 		}, {
 			"msg": "Twitter & @NASCAR are taking you to the Pocono 400 with http://t.co/0bLmhiUn. Read more: http://t.co/lHqQUIjl",
 			"stamp": "7 June 2012"
+		}, {
+			"msg": "Proin posuere tempor facilisis. Aenean tempus dolor ut nunc bibendum sit  http://t.co/0bLmhiUn. Amet volutpat mauris ullamcorper with",
+			"stamp": "7 June 2012"
+		}, {
+			"msg": "TSed id sodales libero. In hac habitasse platea dictumst http://t.co/lHqQUIjl",
+			"stamp": "7 May 2012"
+		}, {
+			"msg": "http://t.co/0bLmhiUn.In egestas mi vitae tortor consectetur tincidunt",
+			"stamp": "17 April 2012"
 		}
 	]
 }
