@@ -1,4 +1,5 @@
 Ti.include(Titanium.Filesystem.resourcesDirectory + "helpers/apiHelper.js");
+Ti.include(Titanium.Filesystem.resourcesDirectory + "constants/appConstants.js");
 var globals = require('globals').Globals;
 var styles = require('globals').Styles;
 var data = require('globals').Data;
@@ -7,7 +8,8 @@ function TweetzTable(Window) {
 
 	var self = Ti.UI.createWindow({
 		title:L('tweetzTable'),
-		backgroundColor:'white'
+		backgroundColor:'white',
+		navBarHidden: (Titanium.Platform.Android) ? true : false,
 	});
 	
 	var indicator = Ti.UI.createActivityIndicator({
@@ -91,7 +93,7 @@ function createCustomLayout(userInfo) {
 	var inner = Ti.UI.createView({
 		height : Ti.UI.SIZE,
 		top : 0,
-		left : 5,
+		left : 5 * dp,
 		right : 0,
 		bottom : 0,
 		backgroundColor : 'transparent'
@@ -101,10 +103,10 @@ function createCustomLayout(userInfo) {
 
 	var Outer_Container = Ti.UI.createView({
 		height : Ti.UI.SIZE,
-		top : 15,
-		right : 30,
-		left : 25,
-		bottom : 15,
+		top : 15 * dp,
+		right : 30 * dp,
+		left : 25 * dp,
+		bottom : 15 * dp,
 		layout : 'vertical'
 	});
 
@@ -145,33 +147,40 @@ function createHeader(){
 	row.add(outer);
 	
 	var inner = Ti.UI.createView({
-		top: 30,
-		right: 30,
-		bottom: 30,
-		left: 30,
-		height: 60,
+		top: 30 * dp,
+		right: 30 * dp,
+		bottom: 30 * dp,
+		left: 30 * dp,
+		height: 60 * dp,
 		backgroundColor: '#24b4ff'
 	});
 	outer.add(inner);
 	
 	var logo = Ti.UI.createView({
-		top: 0,
-		left: 0,
-		width: 60,
-		height: 60,
+		top: 0 * dp,
+		left: 0 * dp,
+		width: 60 * dp,
+		height: 60 * dp,
 		backgroundColor: '#06a1f1',
-		backgroundImage: 'images/twitter.png'
 	});
 	
+	var logo_image = Ti.UI.createImageView({
+		image : (Titanium.Platform.Android) ? '/images/twitter@2x.png' : '/images/twitter.png',
+		height : 60 * dp,
+		width : 60 * dp
+	});
+	
+	logo.add(logo_image);
+
 	inner.add(logo);
 	
 	var title = Ti.UI.createLabel({
 		text : 'Tweetz',
-		left: logo.toImage.width + 10,
-		top: 5,
+		left: (60 + 10)  * dp,
+		top: 5 * dp,
 		color: '#ffffff',
 		font : {
-			fontSize : 24
+			fontSize : 24 * dp
 		}
 	});
 	
@@ -179,11 +188,11 @@ function createHeader(){
 	
 	var slogan = Ti.UI.createLabel({
 		text : 'My twitter feed',
-		left: logo.toImage.width + 10,
-		bottom:  10,
+		left: (60 + 10)  * dp,
+		bottom:  10  * dp,
 		color: '#ffffff',
 		font : {
-			fontSize : 14
+			fontSize : 14 * dp
 		}
 	});
 	
@@ -209,10 +218,10 @@ function createFooter(){
 	
 	var inner = Ti.UI.createView({
 		height: Ti.UI.SIZE,
-		top: 30,
-		right: 30,
-		bottom: 30,
-		left: 30,
+		top: 30 * dp,
+		right: 30 * dp,
+		bottom: 30 * dp,
+		left: 30 * dp,
 		backgroundColor: '#ffffff',
 		layout: 'horizontal'
 	});
@@ -224,7 +233,7 @@ function createFooter(){
 		top: 0,
 		color: '#888888',
 		font : {
-			fontSize : 14
+			fontSize : 14 * dp
 		}
 	});
 	
@@ -235,7 +244,7 @@ function createFooter(){
 		left: lbl.toImage.width,
 		color: '#ff2a2a',
 		font : {
-			fontSize : 14
+			fontSize : 14 * dp
 		}
 	});
 	

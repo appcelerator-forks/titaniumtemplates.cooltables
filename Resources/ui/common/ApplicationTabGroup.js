@@ -1,6 +1,6 @@
 function ApplicationTabGroup(Window) {
 	//create module instance
-	var self = Ti.UI.createTabGroup();
+	var self = Ti.UI.createTabGroup({navBarHidden: (Titanium.Platform.Android) ? true : false});
 	
 	//create app tabs
 	var win1 = new Window(L('home')),
@@ -14,7 +14,7 @@ function ApplicationTabGroup(Window) {
 	win1.containingTab = tab1;
 	
 	var tab2 = Ti.UI.createTab({
-		title: L('settings'),
+		title: L('about'),
 		icon: '/images/KS_nav_views.png',
 		window: win2
 	});
@@ -27,3 +27,4 @@ function ApplicationTabGroup(Window) {
 };
 
 module.exports = ApplicationTabGroup;
+	

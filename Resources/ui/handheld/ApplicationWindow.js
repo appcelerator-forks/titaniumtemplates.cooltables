@@ -1,12 +1,14 @@
 function ApplicationWindow(title) {
 	var self = Ti.UI.createWindow({
 		title:title,
-		backgroundColor:'white'
+		backgroundColor:'white',
+		navBarHidden: (Titanium.Platform.Android) ? true : false
 	});
 	
 	var button = Ti.UI.createButton({
-		height:44,
-		width:200,
+		height:Ti.UI.SIZE,
+		left: 30,
+		right: 30,
 		title:L('tweetzWindow'),
 		top:20
 	});
