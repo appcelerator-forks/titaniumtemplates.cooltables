@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="home">Home</string>	
+	<string name="about">About</string>
+	<string name="tweetzWindow">Open Tweetz Window</string>
+	<string name="tweetzTable">Tweetz Table</string>	
+	<string name="newWindow">New Window</string>
+</resources>
