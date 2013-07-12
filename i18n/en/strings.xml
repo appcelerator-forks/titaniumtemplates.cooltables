@@ -5,4 +5,6 @@
 	<string name="tweetzWindow">Open Tweetz Window</string>
 	<string name="tweetzTable">Tweetz Table</string>	
 	<string name="newWindow">New Window</string>
+	<string name="toDoWindow">Open To Do List</string>
+	<string name="toDoTable">To Do List</string>
 </resources>
