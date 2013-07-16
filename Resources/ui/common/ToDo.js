@@ -2,12 +2,12 @@ Ti.include(Titanium.Filesystem.resourcesDirectory + "helpers/apiHelper.js");
 Ti.include(Titanium.Filesystem.resourcesDirectory + "constants/appConstants.js");
 var globals = require('globals').Globals;
 var styles = require('globals').Styles;
-var data = require('globals').Data;
+var data = require('globals').Notes;
 
-function TweetzTable(Window) {
+function ToDoList(Window) {
 
 	var self = Ti.UI.createWindow({
-		title:L('tweetzTable'),
+		title:L('toDoTable'),
 		backgroundColor:'white',
 		navBarHidden: (Titanium.Platform.Android) ? true : false,
 	});
@@ -75,8 +75,8 @@ function createCustomLayout(userInfo) {
 	row.add(leftbracket);
 	
 	var checkbox = Ti.UI.createView({
-		top: 8,
-		left: 8,
+		top: 8 * dp,
+		left: 8 * dp,
 		height: 44 * dp,
 		width: 44 * dp,
 		backgroundColor : '#007f00'
@@ -95,8 +95,8 @@ function createCustomLayout(userInfo) {
 	row.add(rightbracket);
 	
 	var arrow = Ti.UI.createView({
-		top : 8,
-		right : 3,
+		top : 8 * dp,
+		right : 3 * dp,
 		height: 44 * dp,
 		width: 22 * dp,
 		backgroundColor : '#007f00'
@@ -105,7 +105,7 @@ function createCustomLayout(userInfo) {
 	rightbracket.add(arrow);
 	
 	var vertlinebracket = Ti.UI.createView({
-		left : 60,
+		left : 60 * dp,
 		width: 6 * dp,
 		height: 59 * dp,
 		backgroundColor : '#ff0000'
@@ -114,12 +114,40 @@ function createCustomLayout(userInfo) {
 	row.add(vertlinebracket);
 
 	var separator = Ti.UI.createView({
-		top : 59,
+		top : 59 * dp,
 		height: 1 * dp,
 		backgroundColor : '#999999'
 	})
 	
 	row.add(separator);
+	
+	var text_container = Ti.UI.createView({
+		left : 71 * dp,
+		right : 35 * dp,
+		top : 8 * dp,
+		bottom : 5 * dp,
+		backgroundColor: '#ffffff',
+		layout : 'vertical'
+	})
+	
+	row.add(text_container);
+	
+	var lbl_title = Ti.UI.createLabel({
+		left: 0,
+		text : userInfo.title,
+		color : '#555555',
+		font : styles.table_row_title.font
+	});
+	text_container.add(lbl_title);
+
+	var lbl_notes = Ti.UI.createLabel({
+		text : userInfo.notes,
+		color : '#999999',
+		font : styles.table_row_teaser.font,
+		left: 0,
+	});
+	text_container.add(lbl_notes);
+
 	// var Outer_Container = Ti.UI.createView({
 		// height : Ti.UI.SIZE,
 		// top : 15 * dp,
@@ -185,4 +213,4 @@ function createHeader(){
 }
 
 
-module.exports = TweetzTable;
+module.exports = ToDoList;

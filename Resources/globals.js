@@ -75,3 +75,49 @@ exports.Data = {
 		}
 	]
 }
+
+exports.Notes = {
+	"result": [
+		{
+			"title": "Milk",
+			"notes": "Full Fat",
+			"creation": "15:13:45 8 July 2013",
+			"complete": "no",
+			"priority": "medium",
+			"reminder": "11:00:00 20 July 2013",
+			"repeat": "every day"
+		}, {
+			"title": "Oil Change",
+			"notes": "Mobil1",
+			"creation": "11:20:45 4 July 2013",
+			"complete": "yes",
+			"priority": "high",
+			"reminder": "12:00:00 10 July 2013",
+			"repeat": "no"
+		}, {
+			"title": "Phone Bill",
+			"notes": "60$",
+			"creation": "15:13:45 8 July 2012",
+			"complete": "no",
+			"priority": "high",
+			"reminder": "11:00:00 1 August 2012",
+			"repeat": "no"
+		}, {
+			"title": "Rent",
+			"notes": "400$",
+			"creation": "15:13:45 8 April 2012",
+			"complete": "yes",
+			"priority": "high",
+			"reminder": "11:00:00 1 May 2012",
+			"repeat": "every month"
+		}, {
+			"title": "Sync with iTunes",
+			"notes": "Nine Inch Nails",
+			"creation": "15:13:45 8 July 2013",
+			"complete": "no",
+			"priority": "low",
+			"reminder": "",
+			"repeat": ""
+		}
+	]
+}
