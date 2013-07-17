@@ -69,49 +69,75 @@ function createCustomLayout(userInfo) {
 		left: 0,
 		height: 59 * dp,
 		width: 60 * dp,
-		backgroundColor : '#dbdb36'
+		backgroundColor : '#ffffff'
 	});
 	
 	row.add(leftbracket);
 	
 	var checkbox = Ti.UI.createView({
-		top: 8 * dp,
-		left: 8 * dp,
-		height: 44 * dp,
-		width: 44 * dp,
-		backgroundColor : '#007f00'
+		top: 22 * dp,
+		left: 22 * dp,
+		height: 16 * dp,
+		width: 16 * dp,
+		backgroundColor : '#ffffff'
 	});
 	
 	leftbracket.add(checkbox);
+	
+	var checkbox_image = Ti.UI.createImageView({
+		image : (Titanium.Platform.Android) ? '/images/checkbox_checked2x.png' : '/images/checkbox_checked.png',
+		height : 16 * dp,
+		width : 16 * dp
+	})
+	
+	checkbox.add(checkbox_image);
+
 	
 	var rightbracket = Ti.UI.createView({
 		top : 0,
 		right : 0,
 		height: 59 * dp,
-		width: 30 * dp,
-		backgroundColor : '#dbdb36'
+		width: 32 * dp,
+		backgroundColor : '#ffffff'
 	})
 	
 	row.add(rightbracket);
 	
 	var arrow = Ti.UI.createView({
-		top : 8 * dp,
-		right : 3 * dp,
-		height: 44 * dp,
-		width: 22 * dp,
-		backgroundColor : '#007f00'
+		top : 22 * dp,
+		right : 8 * dp,
+		height: 16 * dp,
+		width: 16 * dp,
+		backgroundColor : '#ffffff'
 	})
 	
 	rightbracket.add(arrow);
+	
+	var arrow_image = Ti.UI.createImageView({
+		image : (Titanium.Platform.Android) ? '/images/arrow2x.png' : '/images/arrow.png',
+		height : 16 * dp,
+		width : 16 * dp
+	})
+	
+	arrow.add(arrow_image);
+
 	
 	var vertlinebracket = Ti.UI.createView({
 		left : 60 * dp,
 		width: 6 * dp,
 		height: 59 * dp,
-		backgroundColor : '#ff0000'
+		backgroundColor : '#ffffff'
 	})
 	
 	row.add(vertlinebracket);
+	
+	var vertline_image = Ti.UI.createImageView({
+		image : '/images/redlines.png',
+		height : 59 * dp,
+		width : 6 * dp
+	})
+	
+	vertlinebracket.add(vertline_image);
 
 	var separator = Ti.UI.createView({
 		top : 59 * dp,
@@ -196,11 +222,12 @@ function createHeader(){
 		height: 44 * dp,
 		backgroundColor: '#24b4ff'
 	});
+	
 	row.add(rippedpage);
 	
 	
 	var header_image = Ti.UI.createImageView({
-		image : (Titanium.Platform.Android) ? '/images/todoheader@2x.png' : '/images/todoheader.png',
+		image : '/images/todoheader.png',
 		height : 44 * dp,
 		width : 320 * dp
 	});
