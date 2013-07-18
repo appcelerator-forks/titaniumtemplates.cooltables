@@ -114,7 +114,7 @@ exports.Notes = {
 			"title": "Sync with iTunes",
 			"notes": "Nine Inch Nails",
 			"creation": "15:13:45 8 July 2013",
-			"complete": "no",
+			"complete": "yes",
 			"priority": "low",
 			"reminder": "",
 			"repeat": ""

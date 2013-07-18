@@ -84,11 +84,19 @@ function createCustomLayout(userInfo) {
 	
 	leftbracket.add(checkbox);
 	
+	if (userInfo.complete == "yes") {
 	var checkbox_image = Ti.UI.createImageView({
 		image : (Titanium.Platform.Android) ? '/images/checkbox_checked2x.png' : '/images/checkbox_checked.png',
 		height : 16 * dp,
 		width : 16 * dp
 	})
+	} else {
+	var checkbox_image = Ti.UI.createImageView({
+		image : (Titanium.Platform.Android) ? '/images/checkbox_unchecked2x.png' : '/images/checkbox_unchecked.png',
+		height : 16 * dp,
+		width : 16 * dp
+	})
+	};
 	
 	checkbox.add(checkbox_image);
 
