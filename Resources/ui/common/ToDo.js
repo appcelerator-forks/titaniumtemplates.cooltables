@@ -21,7 +21,13 @@ function ToDoList(Window) {
 
 	// DATA WILL BE POPULATED WHEN THE WINDOW WILL BE OPENED NOT WHEN REQUIRED
 	self.addEventListener('open', function(e) {
-		var table = create_Table();
+		var table = Ti.UI.createTableView({
+			showVerticalScrollIndicator : false,
+			height : 'auto',
+			backgroundColor : 'transparent',
+			separatorColor : 'transparent',
+		});
+		
 		var tableRows = [];
 		
 		tableRows.push(createHeader());
@@ -31,22 +37,30 @@ function ToDoList(Window) {
 		};
 		table.setData(tableRows);
 		self.add(table);
-		indicator.hide();	
+		indicator.hide();
+		
+		Ti.App.addEventListener('app:updateTables', function() {
+			
+			var tableRows = [];	
+				
+			tableRows.push(createHeader());	
+							
+			for (var i = 0; i < data.result.length; i++) {
+				tableRows.push(createCustomLayout(data.result[i]));
+			};
+			
+			table.setData(tableRows);
+			self.add(table);
+			indicator.hide();
+		});	
+		
 	});
+	
+
 	
 	return self;
 }
 
-function create_Table() {
-	var table = Ti.UI.createTableView({
-		showVerticalScrollIndicator : false,
-		height : 'auto',
-		backgroundColor : 'transparent',
-		separatorColor : 'transparent',
-	});
-
-	return table;
-}
 
 function createCustomLayout(userInfo) {
 	var row = Ti.UI.createTableViewRow({
@@ -162,9 +176,26 @@ function createCustomLayout(userInfo) {
 		bottom : 5 * dp,
 		backgroundColor: '#ffffff',
 		layout : 'vertical'
+		
 	})
 	
 	row.add(text_container);
+	
+	text_container.addEventListener('click', function(e) {
+		userInfo.title = "test" ;
+		data.result.push(
+			{
+				"title": "Sunglasses",
+				"notes": "Wayfarers",
+				"creation": "15:13:45 8 July 2013",
+				"complete": "no",
+				"priority": "medium",
+				"reminder": "11:00:00 20 July 2013",
+				"repeat": "every day"
+			}
+		);
+		Ti.App.fireEvent('app:updateTables');
+	});
 	
 	var lbl_title = Ti.UI.createLabel({
 		left: 0,
