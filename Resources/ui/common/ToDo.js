@@ -114,6 +114,18 @@ function createCustomLayout(userInfo) {
 	
 	checkbox.add(checkbox_image);
 
+	leftbracket.addEventListener('click', function(e) {
+		var i = e.index - 1
+		
+		if (data.result[i].complete == "no")
+		{
+			data.result[i].complete = "yes"	
+		} else {
+			data.result[i].complete == "no"
+		};
+		
+		Ti.App.fireEvent('app:updateTables');
+	});
 	
 	var rightbracket = Ti.UI.createView({
 		top : 0,
@@ -182,7 +194,7 @@ function createCustomLayout(userInfo) {
 	row.add(text_container);
 	
 	text_container.addEventListener('click', function(e) {
-		userInfo.title = "test" ;
+		
 		data.result.push(
 			{
 				"title": "Sunglasses",
