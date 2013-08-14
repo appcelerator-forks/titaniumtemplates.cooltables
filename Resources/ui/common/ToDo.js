@@ -121,7 +121,7 @@ function createCustomLayout(userInfo) {
 		{
 			data.result[i].complete = "yes"	
 		} else {
-			data.result[i].complete == "no"
+			data.result[i].complete = "no"
 		};
 		
 		Ti.App.fireEvent('app:updateTables');
