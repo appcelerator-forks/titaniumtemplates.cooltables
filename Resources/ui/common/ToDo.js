@@ -3,6 +3,7 @@ Ti.include(Titanium.Filesystem.resourcesDirectory + "constants/appConstants.js")
 var globals = require('globals').Globals;
 var styles = require('globals').Styles;
 var data = require('globals').Notes;
+var AddWindow = require('/ui/common/AddWindow').AddWindow;
 
 function ToDoList(Window) {
 
@@ -12,6 +13,15 @@ function ToDoList(Window) {
 		navBarHidden: (Titanium.Platform.Android) ? true : false,
 	});
 	
+	var add = Titanium.UI.createButton({
+		systemButton:Titanium.UI.iPhone.SystemButton.ADD
+	});
+	self.rightNavButton = add;
+	add.addEventListener('click', function()
+	{
+		new AddWindow().open();
+	});
+		
 	var indicator = Ti.UI.createActivityIndicator({
 		style : Ti.UI.iPhone.ActivityIndicatorStyle.BIG
 	});
@@ -103,13 +113,13 @@ function createCustomLayout(userInfo) {
 		image : (Titanium.Platform.Android) ? '/images/checkbox_checked2x.png' : '/images/checkbox_checked.png',
 		height : 16 * dp,
 		width : 16 * dp
-	})
+	});
 	} else {
 	var checkbox_image = Ti.UI.createImageView({
 		image : (Titanium.Platform.Android) ? '/images/checkbox_unchecked2x.png' : '/images/checkbox_unchecked.png',
 		height : 16 * dp,
 		width : 16 * dp
-	})
+	});
 	};
 	
 	checkbox.add(checkbox_image);
@@ -119,9 +129,9 @@ function createCustomLayout(userInfo) {
 		
 		if (data.result[i].complete == "no")
 		{
-			data.result[i].complete = "yes"	
+			data.result[i].complete = "yes"	;
 		} else {
-			data.result[i].complete = "no"
+			data.result[i].complete = "no";
 		};
 		
 		Ti.App.fireEvent('app:updateTables');
@@ -133,7 +143,7 @@ function createCustomLayout(userInfo) {
 		height: 59 * dp,
 		width: 32 * dp,
 		backgroundColor : '#ffffff'
-	})
+	});
 	
 	row.add(rightbracket);
 	
@@ -143,7 +153,7 @@ function createCustomLayout(userInfo) {
 		height: 16 * dp,
 		width: 16 * dp,
 		backgroundColor : '#ffffff'
-	})
+	});
 	
 	rightbracket.add(arrow);
 	
@@ -151,7 +161,7 @@ function createCustomLayout(userInfo) {
 		image : (Titanium.Platform.Android) ? '/images/arrow2x.png' : '/images/arrow.png',
 		height : 16 * dp,
 		width : 16 * dp
-	})
+	});
 	
 	arrow.add(arrow_image);
 
@@ -161,7 +171,7 @@ function createCustomLayout(userInfo) {
 		width: 6 * dp,
 		height: 59 * dp,
 		backgroundColor : '#ffffff'
-	})
+	});
 	
 	row.add(vertlinebracket);
 	
@@ -169,7 +179,7 @@ function createCustomLayout(userInfo) {
 		image : '/images/redlines.png',
 		height : 59 * dp,
 		width : 6 * dp
-	})
+	});
 	
 	vertlinebracket.add(vertline_image);
 
@@ -177,7 +187,7 @@ function createCustomLayout(userInfo) {
 		top : 59 * dp,
 		height: 1 * dp,
 		backgroundColor : '#999999'
-	})
+	});
 	
 	row.add(separator);
 	
@@ -189,25 +199,25 @@ function createCustomLayout(userInfo) {
 		backgroundColor: '#ffffff',
 		layout : 'vertical'
 		
-	})
+	});
 	
 	row.add(text_container);
 	
-	text_container.addEventListener('click', function(e) {
-		
-		data.result.push(
-			{
-				"title": "Sunglasses",
-				"notes": "Wayfarers",
-				"creation": "15:13:45 8 July 2013",
-				"complete": "no",
-				"priority": "medium",
-				"reminder": "11:00:00 20 July 2013",
-				"repeat": "every day"
-			}
-		);
-		Ti.App.fireEvent('app:updateTables');
-	});
+	// text_container.addEventListener('click', function(e) {
+// 		
+		// data.result.push(
+			// {
+				// "title": "Sunglasses",
+				// "notes": "Wayfarers",
+				// "creation": "15:13:45 8 July 2013",
+				// "complete": "no",
+				// "priority": "medium",
+				// "reminder": "11:00:00 20 July 2013",
+				// "repeat": "every day"
+			// }
+		// );
+		// Ti.App.fireEvent('app:updateTables');
+	// });
 	
 	var lbl_title = Ti.UI.createLabel({
 		left: 0,
