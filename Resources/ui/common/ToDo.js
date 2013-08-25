@@ -4,6 +4,7 @@ var globals = require('globals').Globals;
 var styles = require('globals').Styles;
 var data = require('globals').Notes;
 var AddWindow = require('/ui/common/AddWindow').AddWindow;
+var EditWindow = require('/ui/common/EditWindow').EditWindow;
 
 function ToDoList(Window) {
 
@@ -125,7 +126,7 @@ function createCustomLayout(userInfo) {
 	checkbox.add(checkbox_image);
 
 	leftbracket.addEventListener('click', function(e) {
-		var i = e.index - 1
+		var i = e.index - 1;
 		
 		if (data.result[i].complete == "no")
 		{
@@ -165,6 +166,10 @@ function createCustomLayout(userInfo) {
 	
 	arrow.add(arrow_image);
 
+	rightbracket.addEventListener('click', function(e) {
+		Ti.App.fireEvent('app:updateTables');
+		new EditWindow(e).open();
+	});
 	
 	var vertlinebracket = Ti.UI.createView({
 		left : 60 * dp,

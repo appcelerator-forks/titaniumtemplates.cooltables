@@ -21,7 +21,7 @@ function ApplicationWindow(title) {
 		right: 30,
 		title:L('toDoWindow'),
 		top:80
-	})
+	});
 	
 	self.add(button2);
 	
